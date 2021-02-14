@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ContactCreateDialog } from '../contact-create-dialog/contact-create-dialog.component';
 import { Contact } from '../contact.model';
 import { ContactsService } from '../contacts.service';
 
@@ -16,10 +18,17 @@ export class ContactList implements OnInit {
     'address',
   ];
   contacts: Contact[];
-  constructor(private contactService: ContactsService) {}
+  constructor(
+    private contactService: ContactsService,
+    private dialog: MatDialog
+  ) {}
   ngOnInit() {
     this.contactService.getContacts().subscribe((res) => {
       this.contacts = res.contacts;
     });
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(ContactCreateDialog, { width: '250px' });
   }
 }
