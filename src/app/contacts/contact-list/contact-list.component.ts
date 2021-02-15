@@ -29,6 +29,8 @@ export class ContactList implements OnInit {
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(ContactCreateDialog, { width: '250px' });
+    const dialogRef = this.dialog.open(ContactCreateDialog, {
+      width: '300px',
+    });
   }
 }

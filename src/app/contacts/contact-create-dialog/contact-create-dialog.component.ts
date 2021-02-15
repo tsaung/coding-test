@@ -7,6 +7,7 @@ import {
 @Component({
   selector: 'contact-create-dialog',
   templateUrl: './contact-create-dialog.component.html',
+  styleUrls: ['./contact-create-dialog.component.css'],
 })
 export class ContactCreateDialog {
   constructor(private dialogRef: MatDialogRef<ContactCreateDialog>) {}
