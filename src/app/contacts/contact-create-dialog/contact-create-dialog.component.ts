@@ -34,8 +34,7 @@ export class ContactCreateDialog implements OnInit {
 
     this.snackBar.open(message, 'close', { duration: 20000 });
     if (this.contactForm.valid) {
-      console.log(this.contactForm.value);
-      this.dialogRef.close();
+      this.dialogRef.close(this.contactForm.value);
     }
   }
 
@@ -45,8 +44,8 @@ export class ContactCreateDialog implements OnInit {
 
   private initForm() {
     this.contactForm = new FormGroup({
-      firstName: new FormControl('', Validators.required),
-      lastName: new FormControl('', Validators.required),
+      first_name: new FormControl('', Validators.required),
+      last_name: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
       phone: new FormControl('', [Validators.required]),
       address: new FormControl('', Validators.required),

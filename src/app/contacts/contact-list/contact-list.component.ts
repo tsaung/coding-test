@@ -32,5 +32,10 @@ export class ContactList implements OnInit {
     const dialogRef = this.dialog.open(ContactCreateDialog, {
       width: '300px',
     });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(result);
+      this.contacts = this.contacts.concat(result);
+    });
   }
 }
